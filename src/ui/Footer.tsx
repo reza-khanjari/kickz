@@ -17,7 +17,7 @@ import { NavLink } from "react-router";
  function Footer() {
    return (
       <footer>
-        <div className="bg-black-900 w-full px-24 py-32 text-white">
+        <div className="bg-black-900 flex-center w-full py-32 text-white">
           <div className="grid-col-1 grid gap-x-48 gap-y-16 xl:grid-cols-3">
             <div className="flex w-max flex-col gap-y-2 justify-self-center">
               <h3 className="pb-4 text-2xl font-semibold">Quick Links</h3>

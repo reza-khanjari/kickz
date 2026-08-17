@@ -29,7 +29,7 @@ function Header() {
               <img className="size-full" src={logoUrl} alt="logo" />
             </div>
             <NavbarList closeMenu={closeMenu} isOpen={isOpenMenu} />
-            <div className="flex gap-x-8 text-[28px]">
+            <div className="flex items-center  gap-x-8 text-[28px]">
               <div className="relative">
                 <FaCartShopping
                   onClick={() => navigate("/cart")}

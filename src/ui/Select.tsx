@@ -44,7 +44,7 @@ function Select({
       </button>
 
       <div
-        className={`${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"} absolute top-full grid min-w-48 -translate-x-1/3 translate-y-2 rounded-lg bg-[#fcfcfc] shadow-[0_2px_8px_rgba(0,0,0,0.2)] transition-all`}
+        className={`${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"} absolute z-50 top-full grid min-w-48 -translate-x-18 translate-y-2 rounded-lg bg-[#fcfcfc] shadow-[0_2px_8px_rgba(0,0,0,0.2)] transition-all`}
       >
         <div className="overflow-hidden">
           <ul className="flex w-full flex-col rounded-lg border border-black/10">

@@ -6,6 +6,7 @@ import Sidebar from "@/layouts/Sidebar";
 import { useCallback, useRef, useState } from "react";
 import Select from "@/ui/Select";
 import useQueryParam from "@/hooks/useQueryParam";
+import { useScroll } from "@/hooks/useScroll";
 const sortOptions = [
   {
     label: "New Arrivals",
@@ -29,7 +30,8 @@ const sortOptions = [
   },
 ];
 function Products() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const scrolled = useScroll(20)
+  const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [selectedSort, setSelectedSort] = useQueryParam<string>("sort", "");
   const { data, isPending, isFetchingNextPage, fetchNextPage, hasNextPage } =
     useAllProducts();
@@ -55,10 +57,10 @@ function Products() {
     <>
       <section>
 
-        <div className="sticky top-0 z-100 mx-auto flex h-14 items-center justify-between border-b border-b-black/10 bg-white px-12 text-black shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:px-48">
+        <div  style={{position:scrolled ? "sticky" : "static"}} className=" top-0 z-50 mx-auto  flex h-14 items-center justify-between border-b border-b-black/10 bg-white px-4 text-black shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:px-48">
           <div className="flex w-full items-baseline justify-between xl:max-w-6xl">
             <div className="flex-1">
-              <span className="text-lg font-bold capitalize md:text-2xl">
+              <span className=" font-bold capitalize md:text-2xl">
                 All shoes ({productsCount})
               </span>
             </div>
@@ -71,24 +73,26 @@ function Products() {
                 placeholder="Sort By"
               />
               <div
-                onClick={() => setIsSidebarOpen((prev) => !prev)}
+                onClick={() => setSidebarOpen((prev) => !prev)}
                 className="flex cursor-pointer items-center gap-x-1 md:gap-x-2"
               >
-                <span>Filters</span>
+                <span className="hidden md:inline" >Filters</span>
+               <div className="bg-[#f0f0f0] p-2 rounded-2xl md:bg-transparent md:p-0 md:rounded-none" >
 
                 <LuSettings2 />
+               </div>
               </div>
             </div>
           </div>
         </div>
 
         <div className="mx-auto flex w-full items-center pb-24">
-          {isSidebarOpen && <Sidebar  />}
+          {isSidebarOpen && <Sidebar handleClose={() => setSidebarOpen(false)} />}
 
           <div className="mx-auto w-full max-w-8xl">
             <div className="grid min-h-dvh grid-cols-1 items-center justify-center gap-8 px-12 py-8 md:grid-cols-2 xl:grid-cols-3">
               {isPending
-                ? Array.from({ length: 9 }).map((_, i) => <Loader className="min-w-100 min-h-75" variant="card-loader" key={i} />)
+                ? Array.from({ length: 9 }).map((_, i) => <Loader className="min-w-50 md:min-w-100 min-h-75" variant="card-loader" key={i} />)
                 : data?.pages.flatMap((page) => page.data)?.map((item) => {
                     return <Card item={item} key={item.id} />;
                   })}

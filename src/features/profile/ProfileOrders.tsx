@@ -12,7 +12,7 @@ function ProfileOrders() {
       <div className="mx-auto grid h-full w-full grid-cols-1 gap-x-8 gap-y-8 py-8 lg:grid-cols-2 xl:grid-cols-3">
         {isLoading
           ? Array.from({ length: 9 }, (_,i) => (
-              <Loader key={i} variant="card-loader" className="min-h-75 min-w-75" />
+              <Loader key={i} variant="card-loader" className="min-h-75 min-w-50 md:min-w-75" />
             ))
           : data?.map((item) => <OrderItem item={item} />)}
       </div>

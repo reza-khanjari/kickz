@@ -113,7 +113,7 @@ const firstSlideImages = [
 function Home() {
   return (
     <section className="text-white">
-      <div className="h-dvh bg-black [background-image:var(--bg-101-sm)] bg-cover bg-fixed bg-no-repeat md:[background-image:var(--bg-101-lg)]"></div>
+      <div className="h-dvh bg-black [background-image:var(--bg-101-sm)] bg-cover md:bg-fixed bg-no-repeat md:[background-image:var(--bg-101-lg)]"></div>
       <VideoPlayer src="https://fzpddpndwwfyjeeydqhn.supabase.co/storage/v1/object/sign/video/run.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xM2EyODU5OS1hYjBhLTQxZDMtOTE1My1mM2Y3MjUzMjI5OWUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9ydW4ubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4NjA5NTY1NCwiZXhwIjoxODE3NjMxNjU0fQ.e4QnrpfVBuSvvoJpPBlxUzSAs97rwDMG30MYFyXLz-Y" />
 
       <CollectionSection title="For everyone" images={firstSlideImages} />

@@ -7,7 +7,7 @@ interface NavItem {
 }
 const NavItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Products", href: "/Products" },
+  { label: "Products", href: "/products" },
 
  
 ];
@@ -35,7 +35,7 @@ function NavbarList({
       </ul>
      <Overlay isOpen={isOpen} closeToggle={closeMenu} />
       <ul
-        className={`${isOpen ? "translate-x-0" : "translate-x-full"} bg-black-950 fixed top-0 right-0 bottom-0 z-20 w-7/10 gap-x-6  transition-all md:hidden`}
+        className={`${isOpen ? "translate-x-0" : "translate-x-full"} bg-black-950 fixed top-0 right-0 bottom-0 z-1000 w-7/10 gap-x-6  transition-all md:hidden`}
       >
         {NavItems.map((item, index) => (
           <li
