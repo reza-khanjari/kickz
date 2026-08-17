@@ -40,12 +40,12 @@ function Signup() {
     registerUser(data);
   };
   return (
-    <div className={`h-dvh w-full  [background:var(--bg-101-sm)] md:[background:var(--bg-101-lg)]`}>
-      <div className="abs-center bg-black-900/90 flex max-h-[80dvh] w-full max-w-lg  flex-col items-center overflow-auto rounded-lg border border-white/10 px-12 pt-6 pb-8 text-white backdrop-blur-md">
+    <div className={`h-dvh w-full px-8 [background:var(--bg-101-sm)] md:[background:var(--bg-101-lg)]`}>
+      <div className="abs-center bg-black-900/90 flex max-h-[80dvh] w-full max-w-xs sm:max-w-lg  flex-col items-center overflow-auto rounded-lg border border-white/10 px-8 pt-6 pb-8 text-white backdrop-blur-md">
         <div className="size-24">
           <img className="size-full" src={logoUrl} alt="logo" />
         </div>
-        <Heading level="h3" className="mb-2">
+        <Heading level="h4" className="mb-2">
           Welcome To Our Website
         </Heading>
         <p className="mb-4 text-sm text-white/60">Sign up to continue</p>

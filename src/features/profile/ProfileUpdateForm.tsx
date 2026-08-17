@@ -41,7 +41,7 @@ function ProfileUpdateForm({ isOpen, setIsOpen }: AccountDetailsUpdateProps) {
   };
   return (
     <div
-      className={`${isOpen ? "" : "hidden"} md:abs-center max-md:animate-fade-in fixed top-16 left-0 z-50 mx-auto min-h-dvh w-full overflow-auto bg-black p-8 text-white shadow-[0px_0px_8px_rgba(0,0,0,0.5)] md:max-h-120 md:min-h-[75dvh] md:max-w-lg md:rounded-md`}
+      className={`${isOpen ? "" : "hidden"} md:abs-center max-md:animate-fade-in fixed top-0 left-0 z-50 mx-auto min-h-dvh w-full overflow-auto bg-black p-8 text-white shadow-[0px_0px_8px_rgba(0,0,0,0.5)] md:max-h-120 md:min-h-[75dvh] md:max-w-lg md:rounded-md`}
     >
       <RxCross2
         aria-label="Close"

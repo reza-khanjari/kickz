@@ -18,8 +18,8 @@ function Login() {
     resolver: zodResolver(loginSchema),
   });
   return (
-    <div className={`h-dvh w-full  [background:var(--bg-101-sm)] md:[background:var(--bg-101-lg)]`}>
-      <div className="abs-center bg-black-900/90 flex w-full max-w-lg  flex-col items-center rounded-lg border border-white/10 px-12 pt-6 pb-8 text-white backdrop-blur-md">
+    <div className={`h-dvh w-full px-8 [background:var(--bg-101-sm)] md:[background:var(--bg-101-lg)]`}>
+      <div className="abs-center bg-black-900/90 flex w-full max-w-xs sm:max-w-lg  flex-col items-center rounded-lg border border-white/10 px-8 pt-6 pb-8 text-white backdrop-blur-md">
         <div className="size-24">
           <img className="size-full"src={logoUrl} alt="logo" />
         </div>
