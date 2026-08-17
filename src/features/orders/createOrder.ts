@@ -8,7 +8,7 @@ async function createOrder(orderData: CreateOrderInput) {
     .insert([{
       user_id: orderData.userId,
       total_amount: orderData.totalAmount,
-      status: "pending_payment",
+      status: "pending",
     }]).select("*").single()
     ;
 

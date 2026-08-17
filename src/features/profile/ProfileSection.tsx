@@ -43,7 +43,7 @@ function ProfileSection() {
     <section>
       <div className="flex w-full flex-col items-start md:flex-row">
         <div
-          className={`bg-black-800 flex min-h-dvh w-full flex-col text-[#f0f0f0] md:sticky md:top-0 md:max-w-65 md:shadow-[2px_0px_5px_rgba(123,123,123,0.2)]`}
+          className={`bg-black-800 flex py-3 md:py-0 md:min-h-dvh w-full flex-col text-[#f0f0f0] md:sticky md:top-0 md:max-w-65 md:shadow-[2px_0px_5px_rgba(123,123,123,0.2)]`}
         >
           <div className="flex justify-between items-center px-6 pt-10 pb-8">
             <button
