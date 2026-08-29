@@ -7,6 +7,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Select from "@/ui/Select";
 import useQueryParam from "@/hooks/useQueryParam";
 import { useScroll } from "@/hooks/useScroll";
+import Skeleton from "@/ui/Skeleton";
 const sortOptions = [
   {
     label: "New Arrivals",
@@ -103,11 +104,7 @@ function Products() {
             <div className="grid min-h-dvh grid-cols-1 items-center justify-center gap-8 px-12 py-8 md:grid-cols-2 xl:grid-cols-3">
               {isPending
                 ? Array.from({ length: 9 }).map((_, i) => (
-                    <Loader
-                      className="min-h-75 min-w-50 md:min-w-100"
-                      variant="card-loader"
-                      key={i}
-                    />
+                  <Skeleton variant="card" key={i} />
                   ))
                 : data?.pages
                     .flatMap((page) => page.data)

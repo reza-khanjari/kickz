@@ -12,6 +12,7 @@ import Loader from "@/ui/Loader";
 import ProfileOrders from "./ProfileOrders";
 import ProfileUpdate from "@/features/profile/ProfileUpdate";
 import { useNavigate } from "react-router";
+import Skeleton from "@/ui/Skeleton";
 type Tabs = "orders" | "favorits" | "details";
 const TAB_COMPONENTS: Record<Tabs, React.ReactNode> = {
   orders: <ProfileOrders />,
@@ -27,57 +28,66 @@ const styles = {
   iconTab: "text-2xl",
 };
 function ProfileSection() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { mutate, isPending } = useLogout();
   const { data, isLoading } = useGetProfile();
   const [activeTab, setActiveTab] = useQueryParam<Tabs>("activeTab", "details");
-  if (isLoading) {
-    return (
-      <div className="max-h-dvh max-w-dvw py-4">
-        <Loader variant="profile-loader m-auto min-w-[98dvw] " className="" />
-      </div>
-    );
-  }
+
 
   return (
     <section>
       <div className="flex w-full flex-col items-start md:flex-row">
         <div
-          className={`bg-black-800 flex py-3 md:py-0 md:min-h-dvh w-full flex-col text-[#f0f0f0] md:sticky md:top-0 md:max-w-65 md:shadow-[2px_0px_5px_rgba(123,123,123,0.2)]`}
+          className={`bg-black-800 flex w-full flex-col py-3 text-[#f0f0f0] md:sticky md:top-0 md:min-h-dvh md:max-w-65 md:py-0 md:shadow-[2px_0px_5px_rgba(123,123,123,0.2)]`}
         >
-          <div className="flex justify-between items-center px-6 pt-10 pb-8">
+          <div className="flex items-center justify-between px-6 pt-10 pb-8">
             <button
-              className="flex items-center cursor-pointer hover:text-white gap-x-2 font-bold"
+              className="flex cursor-pointer items-center gap-x-2 font-bold hover:text-white"
               type="button"
-              onClick={()=>navigate('/')}
+              onClick={() => navigate("/")}
             >
               <FaHome className="text-2xl" />
               Home
             </button>
             <button
-              className="flex items-center cursor-pointer hover:text-white gap-x-2 font-bold"
+              className="flex cursor-pointer items-center gap-x-2 font-bold hover:text-white"
               type="button"
-               onClick={()=>navigate('/cart')}
+              onClick={() => navigate("/cart")}
             >
               <FaCartShopping className="text-2xl" />
               Cart
             </button>
-
           </div>
-              <div className="mx-auto mt-2 w-9/10 border-t-2 border-t-white/20"></div>
+          <div className="mx-auto mt-2 w-9/10 border-t-2 border-t-white/20"></div>
 
           <div className="flex w-full flex-col border-b-white/10 py-6 text-center">
             <div className="mx-auto mb-6 size-28 overflow-hidden rounded-full">
-              <img
-                className="size-full object-center"
-                src={data?.avatar}
-                alt="avatar"
-              />
+              {isLoading ? (
+                <div className="animate-background-pulse size-full bg-[#ddd]"></div>
+              ) : (
+                <img
+                  className="size-full object-center"
+                  src={data?.avatar}
+                  alt="avatar"
+                />
+              )}
             </div>
 
             <div className="flex flex-col gap-y-6">
-              <Heading level="h3">{data?.full_name}</Heading>
-              <span className="text-sm text-gray-300">{data?.email}</span>
+              <Heading level="h3">
+                {isLoading ? (
+                  <div className="animate-background-pulse rounded-sm h-8 w-7/10 mx-auto bg-[#ddd]"></div>
+                ) : (
+                  data?.full_name
+                )}
+              </Heading>
+              <span className="text-sm text-gray-300">
+                {isLoading ? (
+                  <div className="animate-background-pulse h-6 w-7/10 rounded-sm mx-auto bg-[#ddd]"></div>
+                ) : (
+                  data?.email
+                )}
+              </span>
             </div>
           </div>
           <div className="w-full grow flex-col">
@@ -122,17 +132,16 @@ function ProfileSection() {
               </li>
 
               <div className="mx-auto mt-2 w-9/10 border-t-2 border-t-white/20"></div>
-           
-                <button
-                  disabled={isPending}
-                  onClick={() => mutate()}
-                  type="button"
-                 className={`mx-auto flex mt-4 py-3 gap-x-2 cursor-pointer rounded-lg border border-[#2A1215]/10 bg-[#2A1215] px-8 font-semibold text-[#FF4D4F] hover:bg-[#3b1a1e]`}
-                >
-                  <BiLogOut className={styles["iconTab"]} />
-                  {isPending ? "pendnig" : "sign out"}
-                </button>
-          
+
+              <button
+                disabled={isPending}
+                onClick={() => mutate()}
+                type="button"
+                className={`mx-auto mt-4 flex cursor-pointer gap-x-2 rounded-lg border border-[#2A1215]/10 bg-[#2A1215] px-8 py-3 font-semibold text-[#FF4D4F] hover:bg-[#3b1a1e]`}
+              >
+                <BiLogOut className={styles["iconTab"]} />
+                {isPending ? "pendnig" : "sign out"}
+              </button>
             </ul>
           </div>
         </div>

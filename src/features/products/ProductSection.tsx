@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import Button from "@/ui/Button";
 import FavouriteToggle from "@/features/favourits/FavouriteToggle";
 import Price from "@/ui/Price";
+import Skeleton from "@/ui/Skeleton";
 
 function ProductSection() {
   const { data, isLoading } = useGetProduct();
@@ -63,10 +64,10 @@ function ProductSection() {
 
   return (
     <section>
-      <div className="xxs:px-6 xs:px-12 mx-auto w-full px-4 py-6 sm:max-w-xl xl:max-w-7xl">
+      <div className="mx-auto w-full px-4 py-6 sm:max-w-xl xl:max-w-7xl">
         {isLoading ? (
           <div className="flex items-center">
-            <Loader variant="product-loader" className="abs-center" />
+             <Skeleton variant="productPage" />
           </div>
         ) : (
           <div className="flex flex-col items-center md:flex-row">
@@ -77,9 +78,9 @@ function ProductSection() {
                 alt={String(data?.id)}
               />
             </div>
-            <div className="h-full w-full px-8 py-6">
+            <div className="h-full w-full sm:px-8 py-6">
               <div className="flex h-full flex-col">
-                <Heading className="font-bold" level="h2">{data?.title}</Heading>
+                <Heading className="font-bold" level="h3">{data?.title}</Heading>
 
                 <div className="my-2 text-sm font-medium text-black/80 capitalize">
                   <span>

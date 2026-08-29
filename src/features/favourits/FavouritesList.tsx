@@ -2,6 +2,7 @@ import Heading from "@/ui/Heading";
 import useFavQuery from "./useFavQuery";
 import Card from "../products/ProductCard";
 import Loader from "@/ui/Loader";
+import Skeleton from "@/ui/Skeleton";
 
 function FavouritesList() {
   const { favs, isLoading } = useFavQuery();
@@ -16,8 +17,8 @@ function FavouritesList() {
 
       <div className="grid grid-cols-1 gap-16 px-8 md:grid-cols-2 lg:grid-cols-3">
         {isLoading
-          ? Array.from({ length: 9 }, (_, index) => index).map((item) => (
-              <Loader key={item} variant="card-loader" className="min-w-50 md:min-w-75 min-h-100" />
+          ? Array.from({ length: 6 }, (_, index) => index).map((item) => (
+            <Skeleton key={item} variant="card" />
             ))
           : products?.map((item) => <Card item={item} />)}
       </div>

@@ -19,7 +19,7 @@ function Login() {
   });
   return (
     <div className={`h-dvh w-full  [background:var(--bg-101-sm)] md:[background:var(--bg-101-lg)]`}>
-      <div className="abs-center bg-black-900/90 flex w-full max-w-86 sm:max-w-lg  flex-col items-center rounded-lg border border-white/10 px-8 pt-6 pb-8 text-white backdrop-blur-md">
+      <div className="abs-center bg-black-900/90 flex w-full max-w-90 sm:max-w-lg  flex-col items-center rounded-lg border border-white/10 px-6 sm:px-12 pt-6 pb-8 text-white backdrop-blur-md">
         <div className="size-24">
           <img className="size-full"src={logoUrl} alt="logo" />
         </div>

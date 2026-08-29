@@ -5,6 +5,7 @@ import { useState } from "react";
 import Overlay from "@/ui/Overlay";
 import Loader from "@/ui/Loader";
 import ProfileUpdateForm from "./ProfileUpdateForm";
+import Skeleton from "@/ui/Skeleton";
 function ProfileUpdate() {
   const { data, isLoading } = useGetProfile();
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -52,7 +53,7 @@ function ProfileUpdate() {
       <div className="mx-auto grid w-full grid-cols-1 items-center justify-center gap-6 rounded-md p-8 md:grid-cols-3">
         {isLoading
           ? Array.from({ length: 9 }, (_, i) => (
-              <Loader className="min-w-50 min-h-28" variant="card-loader" key={i} />
+              <Skeleton  variant="infoBox" key={i} />
             ))
           : profileInfo.map((item) => (
               <div
