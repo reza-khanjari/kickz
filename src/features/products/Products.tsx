@@ -1,6 +1,5 @@
 import { useAllProducts } from "@/features/products/useAllProductsQuery";
 import Card from "@/features/products/ProductCard";
-import Loader from "@/ui/Loader";
 import { LuSettings2 } from "react-icons/lu";
 import Sidebar from "@/layouts/Sidebar";
 import { useCallback, useEffect, useRef, useState } from "react";

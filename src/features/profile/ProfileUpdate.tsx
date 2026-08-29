@@ -3,7 +3,6 @@ import { FiEdit } from "react-icons/fi";
 import useGetProfile from "./useProfileQuery";
 import { useState } from "react";
 import Overlay from "@/ui/Overlay";
-import Loader from "@/ui/Loader";
 import ProfileUpdateForm from "./ProfileUpdateForm";
 import Skeleton from "@/ui/Skeleton";
 function ProfileUpdate() {

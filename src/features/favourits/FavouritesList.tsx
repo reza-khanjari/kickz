@@ -1,7 +1,6 @@
 import Heading from "@/ui/Heading";
 import useFavQuery from "./useFavQuery";
 import Card from "../products/ProductCard";
-import Loader from "@/ui/Loader";
 import Skeleton from "@/ui/Skeleton";
 
 function FavouritesList() {

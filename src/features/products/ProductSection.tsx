@@ -3,7 +3,6 @@ import { addToCart, type CartItem } from "@/features/cart/cartSlice";
 import { useGetProduct } from "@/features/products/useProductsQuery";
 import { audience, brands } from "@/ui/constants";
 import Heading from "@/ui/Heading";
-import Loader from "@/ui/Loader";
 import PickColors from "@/ui/PickColors";
 import { useMemo, useState } from "react";
 import toast from "react-hot-toast";

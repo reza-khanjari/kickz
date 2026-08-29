@@ -15,7 +15,7 @@ function ProtectedRoute({ children }: ProtectedRout) {
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      toast.custom((t) => <div className="bg-[#f7f7f7] flex text-black items-center rounded-lg gap-x-2 px-6 py-2" >
+      toast.custom(() => <div className="bg-[#f7f7f7] flex text-black items-center rounded-lg gap-x-2 px-6 py-2" >
         <IoWarning className="text-3xl animate-scale text-orange-500" />
          <p >
            Please sign in to continue.
