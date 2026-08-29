@@ -1,12 +1,13 @@
-import {  Outlet } from "react-router";
+import {  Outlet, ScrollRestoration } from "react-router";
 import Header from "./Header";
 import BackToTop from "@/ui/BackToTop";
-import Skeleton from "@/ui/Skeleton";
+
 
 function MainLayout() {
   return (
     <>
       <BackToTop />
+      <ScrollRestoration />
       <Header />
       <main>
        
