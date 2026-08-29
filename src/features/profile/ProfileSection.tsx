@@ -6,13 +6,11 @@ import { BiLogOut } from "react-icons/bi";
 import { VscAccount } from "react-icons/vsc";
 import { useLogout } from "@/features/auth/useAuth";
 import useQueryParam from "@/hooks/useQueryParam";
-
 import FavouritesList from "@/features/favourits/FavouritesList";
-import Loader from "@/ui/Loader";
 import ProfileOrders from "./ProfileOrders";
 import ProfileUpdate from "@/features/profile/ProfileUpdate";
 import { useNavigate } from "react-router";
-import Skeleton from "@/ui/Skeleton";
+
 type Tabs = "orders" | "favorits" | "details";
 const TAB_COMPONENTS: Record<Tabs, React.ReactNode> = {
   orders: <ProfileOrders />,
